@@ -2,8 +2,9 @@ const args = require('process').argv.slice(2);
 const fs = require('fs');
 const path = require('path');
 
-const helpReg = /-*help$/;
-if (args.some(arg => helpReg.test(arg))) {
+const testArgs = reg => args.some(arg => reg.test(arg));
+
+if (testArgs(/-*help$/)) {
   const help = `
 Usage: touchindex FILE_OR_EXTENSION...[OPTION]...
 Create bare bones html, js or css files to start your project from.
@@ -27,6 +28,8 @@ Available file extensions:
   mjs is the same as js but uses type="module" regardless of scriptType option.
 `;
   console.log(help);
+} else if (testArgs(/-*version$/)) {
+  console.log(require(path.join(__dirname, 'package.json')).version);
 } else {
   main();
 }
@@ -129,8 +132,6 @@ h1 {
   if (files.length === 0) {
     files.push({ filename: 'index', ext: 'html' });
   }
-
-  console.log(files, options, args);
 
   const htmlFiles = files.filter(isHtmlFile);
   const indexHtml = htmlFiles.find(isIndexFile);
