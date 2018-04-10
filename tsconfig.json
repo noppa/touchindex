@@ -4,6 +4,7 @@
   ],
   "compilerOptions": {
     "allowJs": true,
-    "checkJs": true
+    "checkJs": true,
+    "target": "es6"
   }
 }
