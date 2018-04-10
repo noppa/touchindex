@@ -130,6 +130,8 @@ h1 {
     files.push({ filename: 'index', ext: 'html' });
   }
 
+  console.log(files, options, args);
+
   const htmlFiles = files.filter(isHtmlFile);
   const indexHtml = htmlFiles.find(isIndexFile);
 
