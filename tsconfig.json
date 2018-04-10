@@ -1,0 +1,9 @@
+{
+  "include": [
+    "./index.js"
+  ],
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true
+  }
+}
