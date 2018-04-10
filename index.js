@@ -65,7 +65,7 @@ h1 {
 
 const
   optionRegex = new RegExp(
-    `^--?(${Object.keys(defaultOptions).join('|')})(?:(=| )([._\\-,äöåa-z]+)$)?`, 'i'),
+    `^--?(${Object.keys(defaultOptions).join('|')})(?:(=| )([._\\-,äöåa-z]+))?`, 'i'),
   fileRegex = new RegExp(
     `^([a-zA-Z]+\\.)?(${Object.keys(handlers).join('|')})$`);
 
@@ -126,6 +126,10 @@ const promises = resourceFileResults
         if (err && err.code === 'EEXIST' && writeOptions.flag === 'wx') {
           return Promise.reject(new Error(
             `File ${pathname} already exists. Use option --force to overwrite existing files.`
+          ));
+        } else if (err && err.code === 'ENOENT' && options.dir !== defaultOptions.dir) {
+          return Promise.reject(new Error(
+            err.message + `.\nCreate directory "${options.dir}" first.`
           ));
         } else {
           return Promise.reject(err);
