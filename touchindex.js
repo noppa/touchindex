@@ -175,7 +175,7 @@ h1 {
     const errors = results.filter(negate(isString));
     const pathnames = results.filter(isString);
     if (pathnames.length) {
-      console.log('Done! These files were created:\n' + pathnames.join('\n'));
+      console.log('Done 🌱These files were created:\n' + pathnames.join('\n'));
     }
     if (errors.length) {
     // @ts-ignore
