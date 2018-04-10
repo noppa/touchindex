@@ -6,8 +6,7 @@ const path = require('path');
 const testArgs = reg => args.some(arg => reg.test(arg));
 
 if (testArgs(/-*help$/)) {
-  const help = `
-Usage: touchindex FILE_OR_EXTENSION...[OPTION]...
+  const help = `Usage: touchindex FILE_OR_EXTENSION...[OPTION]...
 Create bare bones html, js or css files to start your project from.
 
 FILE_OR_EXTENSION can either be an extension, in which case name "index"
@@ -87,8 +86,8 @@ function main () {
         return handlers.js({...opts, ...{ scriptType: 'module' }}, ...rest);
       },
       css (opts, filename) {
-        const template = `
-h1 {
+        const template =
+`h1 {
   text-align: center;
   font-family: Calibri, Verdana, sans-serif;
   color: #232323;
