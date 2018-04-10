@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "touchindex": "touchindex.js"
+  },
   "keywords": [
     "index.html",
     "scaffold",
@@ -24,5 +27,6 @@
   },
   "engines": {
     "node": ">=7.10.1"
-  }
+  },
+  "dependencies": {}
 }
